@@ -1,0 +1,61 @@
+07 52 40: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+07 52 40: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+07 52 41: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+07 52 41: PM : DEBUG : Dataframe combinado.
+07 53 11: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+07 53 11: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+07 53 11: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+07 53 11: PM : DEBUG : Dataframe combinado.
+07 55 28: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+07 57 43: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+07 57 43: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+07 57 43: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+07 57 43: PM : DEBUG : Dataframe combinado.
+05 51 27: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+05 51 27: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+05 51 27: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+05 51 27: PM : DEBUG : Dataframe combinado.
+10 18 32: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 18 32: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 18 32: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 18 32: AM : DEBUG : Dataframe combinado.
+10 19 18: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 19 18: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 19 18: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 19 18: AM : DEBUG : Dataframe combinado.
+10 21 17: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 21 17: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 21 17: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 21 17: AM : DEBUG : Dataframe combinado.
+10 25 00: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 25 00: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 25 00: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 25 00: AM : DEBUG : Dataframe combinado.
+10 25 29: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 25 29: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 25 29: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 25 29: AM : DEBUG : Dataframe combinado.
+10 25 55: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 25 55: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 25 55: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 25 55: AM : DEBUG : Dataframe combinado.
+10 26 19: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 26 19: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 26 19: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 26 19: AM : DEBUG : Dataframe combinado.
+10 29 41: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+10 29 41: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+10 29 41: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+10 29 41: AM : DEBUG : Dataframe combinado.
+03 58 57: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+03 58 57: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+03 58 57: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+03 58 57: PM : DEBUG : Dataframe combinado.
+03 58 57: PM : DEBUG : Se ha hecho pivot del dataframe
+03 58 57: PM : DEBUG : Se ha hecho groupby del dataframe
+03 59 07: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+03 59 07: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+03 59 07: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+03 59 07: PM : DEBUG : Dataframe combinado.
+03 59 07: PM : DEBUG : Se ha hecho pivot del dataframe
+03 59 07: PM : DEBUG : Se ha hecho groupby del dataframe
