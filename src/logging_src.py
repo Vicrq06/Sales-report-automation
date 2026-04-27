@@ -8,4 +8,5 @@ log.basicConfig(level=log.DEBUG,
                     log.StreamHandler()
                 ]
 )
-
+log.getLogger('matplotlib').setLevel(log.WARNING)
+log.getLogger("PIL").setLevel(log.WARNING)
