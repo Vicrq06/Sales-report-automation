@@ -22,6 +22,7 @@ if __name__=="__main__":
 
     df_pivot_table=process.pivot_table_pd(df,("Id_producto"),"Producto","Total",sum,False).fillna(0)
     print (df_pivot_table)
+    process.export_graph(df_pivot_table,"bar")
 
 
 

@@ -60,9 +60,9 @@ def group_by(df:pd.DataFrame,
 
     return resultado
 
-def export_graph(df,columna):
-    df[columna].plot(kind="plot")
-    plt.title("")
-    plt.ylabel("")
+def export_graph(df,tipo):
+    df.plot(kind=tipo)
+    plt.title("Producto vs precio")
+    plt.ylabel("Precio")
     plt.show()
 
