@@ -61,7 +61,8 @@ def group_by(df:pd.DataFrame,
     return resultado
 
 def export_graph(df,columna):
-    df[columna].plot(kind="")
+    df[columna].plot(kind="plot")
     plt.title("")
     plt.ylabel("")
     plt.show()
+
