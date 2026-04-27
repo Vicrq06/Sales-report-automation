@@ -3,6 +3,7 @@ from pathlib import Path
 from logging_src import log
 from utils import Output_dir
 import openpyxl
+import matplotlib.pyplot as plt
 
 def limpieza_carga (archivo):
     if archivo.is_file() :
@@ -29,7 +30,7 @@ def combinar_data(files):
     return df
 
 def exportar(df):
-    df.to_excel(Output_dir/"df_combinado.xlsx")
+    df.to_excel(Output_dir/"df_final",index=True)
     log.debug("Se ha exportado el dataframe")
 
 def estadisticas_pd(df):
@@ -45,8 +46,8 @@ def pivot_pd(df,indice,columna,valores):
     log.debug("Se ha hecho pivot del dataframe")
     return df1
 
-def pivot_table_pd(df,indice,columna,valores,funcion):
-    df_pivot=df.pivot_table(index=indice,columns=columna,values=valores,aggfunc=funcion).copy()
+def pivot_table_pd(df,indice,columna,valores,funcion,marg:bool):
+    df_pivot=df.pivot_table(index=indice,columns=columna,values=valores,aggfunc=funcion,margins=marg).copy()
     log.debug("Se ha hecho pivot_table del dataframe")
     return df_pivot
 
@@ -55,6 +56,12 @@ def group_by(df:pd.DataFrame,
              agregaciones):
     
     log.debug("Se ha hecho groupby del dataframe")
-    resultado = df.groupby(columnas_a_agrupar).agg(agregaciones)
+    resultado = df.groupby(columnas_a_agrupar).agg(agregaciones).copy()
 
     return resultado
+
+def export_graph(df,columna):
+    df[columna].plot(kind="")
+    plt.title("")
+    plt.ylabel("")
+    plt.show()

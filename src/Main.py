@@ -2,7 +2,6 @@ from utils import get_xslx
 from logging_src import log
 from process import combinar_data
 import process
-import pandas as pd 
 
 
 if __name__=="__main__":
@@ -20,6 +19,11 @@ if __name__=="__main__":
 
     df_groupby=process.group_by(df,("Id_producto"),{"Total":"sum"})
     print (df_groupby)
+
+    df_pivot_table=process.pivot_table_pd(df,("Id_producto"),"Producto","Total",sum,False).fillna(0)
+    print (df_pivot_table)
+
+
 
     
     
