@@ -28,7 +28,9 @@ project/
 │── requirements.txt
 ## Installation
 git clone https://github.com/yourusername/sales-report-automation.git
+
 cd sales-report-automation
+
 pip install -r requirements.txt
 ## Usage
 python main.py
