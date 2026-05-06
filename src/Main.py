@@ -27,12 +27,15 @@ if __name__=="__main__":
     print (df_groupby)
 
     print ("Pivot table usando suma como método de agregacion sin margins:")
-    df_pivot_table=process.pivot_table_pd(df,"Producto",("Id_producto"),"Total",sum,False).fillna(0)
-    print (df_pivot_table)
-
+    df_pivot_table=process.pivot_table_pd(df,("Id_producto"),"Producto","Total",sum,False).fillna(0)
+    print (df_pivot_table)     #Este método no es necesario aqui ya que no existen productos distintos con el mismo id, asi que conviene mas usar groupby
+    
     print ("Exportando gráfica de pivot table")
-    process.export_graph(df_pivot_table,"bar")
+    process.export_graph(df_pivot_table,tipo="bar",nombre="Grafico")
 
+    print ("Exportacion de excel")
+    excel=process.exportar_excel()
+    excel.exportar(df_pivot_table,"estadisticas")
 
 
     

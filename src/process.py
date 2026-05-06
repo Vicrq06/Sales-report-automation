@@ -4,6 +4,7 @@ from logging_src import log
 from utils import Output_dir
 import openpyxl
 import matplotlib.pyplot as plt
+from abc import (ABC,abstractmethod)
 
 def limpieza_carga (archivo):
     if archivo.is_file() :
@@ -28,22 +29,27 @@ def combinar_data(files):
     df=pd.concat(dataframes,axis=0)
     log.debug("Dataframe combinado.")
     return df
+    
 
-def exportar(df,to=None):
-    try:
-        if to=="Excel":
-            df.to_excel(Output_dir/"df_final",index=True)
-            log.debug("Se ha exportado el excel del dataframe")
-        elif to=="csv":
-            df.to_csv(Output_dir/"df_final")
-            log.debug("Se ha exportado el csv del dataframe")
-    except Exception as e:
-        log.error(f"Ha ocurrido un error al exportar a {to}: ", e)
+class exportador (ABC):
+    @abstractmethod
+    def exportar(self,df,path):
+        pass
+
+class exportar_excel(exportador):
+    def exportar(self, df, nombre=None):
+        df.to_excel(f"{Output_dir/nombre}.xlsx",index=True)
+        log.debug("Excel exportado con exito")
+
+class exportar_csv(exportador):
+    def exportar(self, df, nombre=None):
+        df.to_csv(f"{Output_dir/nombre}.csv",index=True)
+    
 
 def estadisticas_pd(df):
     return df.describe()
 
-def merge(df_i,df_d,how):
+def merge(df_i,df_d,how,on):
     try:
         df_merge=pd.merge(df_i,df_d,how=how)
         log.debug("Se ha hecho merge del dataframe")
@@ -82,10 +88,12 @@ def group_by(df:pd.DataFrame,
         log.error(f"Error al agrupar el dataframe: {e}")
         return None
 
-def export_graph(df,tipo):
-    df.plot(kind=tipo)
-    plt.title("Producto vs precio")
-    plt.ylabel("Precio")
+def export_graph(df, x=None, y=None, tipo="line",nombre=None,save_path=Output_dir):
+    df.plot(x=x, y=y, kind=tipo)
+    if save_path and nombre:
+        path=save_path/f"{nombre}.png"
+        plt.savefig(f"{path}")
+        log.debug("Grafica exportada con éxito")
     plt.show()
     
 
