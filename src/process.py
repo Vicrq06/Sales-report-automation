@@ -5,6 +5,11 @@ from utils import Output_dir
 import openpyxl
 import matplotlib.pyplot as plt
 from abc import (ABC,abstractmethod)
+from dotenv import load_dotenv
+import smtplib 
+from email.message import EmailMessage
+import os
+
 
 def limpieza_carga (archivo):
     if archivo.is_file() :
@@ -97,3 +102,42 @@ def export_graph(df, x=None, y=None, tipo="line",nombre=None,save_path=Output_di
     plt.show()
     
 
+load_dotenv()
+EMAIL_USER=os.getenv("EMAIL_USER")
+EMAIL_PASS=os.getenv("EMAIL_PASS")
+def enviar_correo (asunto,cuerpo,destinatario,archivos=None):
+    email=EmailMessage()
+    email["To"]=destinatario
+    email["From"]=EMAIL_USER
+    email["Subject"]=asunto
+
+    email.set_content(cuerpo)
+
+    if archivos:
+        for ruta in archivos:
+            try:
+                with open(ruta, "rb") as f:
+                    file_data = f.read()
+                    file_name = os.path.basename(ruta)
+
+                email.add_attachment(
+                    file_data,
+                    maintype="application",
+                    subtype="octet-stream",
+                    filename=file_name
+                )
+            except Exception as e:
+                print(f"Error adjuntando {ruta}: {e}")
+
+    # 🚀 Enviar correo
+    try:
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.starttls()
+            server.login(EMAIL_USER, EMAIL_PASS)
+            server.send_message(email)
+
+        log.debug("Correo enviado correctamente")
+
+    except Exception as e:
+        log.error(f"Error enviando correo: {e}")
+    
