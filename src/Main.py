@@ -1,51 +1,105 @@
 from utils import get_xslx
 from logging_src import log
-from process import combinar_data
-import process
+from utils import get_xslx
+from logging_src import log
+
+from process import (
+    DataLoader,
+    DataProcessor,
+    GraphExporter,
+    ExportarExcel,
+    ExportarCSV
+)
 
 
-if __name__=="__main__":
-    archivos=get_xslx()
-    if not archivos: 
+if __name__ == "__main__":
+
+    # OBTENER ARCHIVOS
+    archivos = get_xslx()
+    if not archivos:
         log.error("No hay archivos XLSX")
-    df=combinar_data(archivos)
-    df_estadisticas=process.estadisticas_pd(df)
-    
-    print ("Df combinado")
-    print (df)
+        exit()
+
+    # CARGA Y LIMPIEZA
+    df = DataLoader.combinar_data(archivos)
+    if df is None:
+        log.error("No se pudo crear el DataFrame")
+        exit()
+    print("DF combinado")
+    print(df)
+
+    # ESTADÍSTICAS
+    print("Ejecutando análisis estadístico")
+    df_estadisticas = DataProcessor.estadisticas(df)
+    print(df_estadisticas)
+
+    # PIVOT
+    print("Cambiando formato largo a ancho (pivot)")
+    df_pivot = DataProcessor.pivot(
+        df,
+        indice="Fecha",
+        columna="Id_producto",
+        valores="Total"
+    )
+    print(df_pivot)
+
+    # GROUPBY
+    print("Agrupando por producto")
+    df_groupby = DataProcessor.group_by(
+        df,
+        ["Id_producto"],
+        {"Total": "sum"}
+    )
+    print(df_groupby)
+
+    # PIVOT TABLE
+    print("Pivot table")
+    df_pivot_table = DataProcessor.pivot_table(
+        df,
+        indice="Id_producto",
+        columna="Producto",
+        valores="Total",
+        funcion=sum,
+        marg=False
+    )
+
+    df_pivot_table = df_pivot_table.fillna(0)
+
+    print(df_pivot_table)
 
 
-    print ("Ejecutando analisis de estadisticas básicas (describe)")
-    print (df_estadisticas)
-
-    print ("Cambiando formato largo a ancho (pivot)")
-    df_pivot=process.pivot_pd(df,indice="Fecha",columna="Id_producto",valores="Total")
-    print (df_pivot)
-
-    print ("Agrupando por id y usando suma como metodo de agregacion:")
-    df_groupby=process.group_by(df,("Id_producto"),{"Total":"sum"})
-    print (df_groupby)
-
-    print ("Pivot table usando suma como método de agregacion sin margins:")
-    df_pivot_table=process.pivot_table_pd(df,("Id_producto"),"Producto","Total",sum,False).fillna(0)
-    print (df_pivot_table)     #Este método no es necesario aqui ya que no existen productos distintos con el mismo id, asi que conviene mas usar groupby
-    
-    print ("Exportando gráfica de pivot table")
-    process.export_graph(df_pivot_table,tipo="bar",nombre="Grafico")
-    print ("Exportando Gráfica de estadisticas generales")
-    process.export_graph(df_estadisticas,tipo="bar",nombre="Grafico estadisticas")
+    # GRÁFICAS
+    print("Exportando gráfica pivot table")
+    GraphExporter.export_graph(
+        df_pivot_table,
+        tipo="bar",
+        nombre="grafico_pivot"
+    )
+    print("Exportando gráfica estadísticas")
+    GraphExporter.export_graph(
+        df_estadisticas,
+        tipo="bar",
+        nombre="grafico_estadisticas"
+    )
 
 
+    # EXPORTACION
 
-    print ("Exportacion de excel")
-    excel=process.exportar_excel()
-    excel.exportar(df_pivot_table,"estadisticas")
-    print ("Exportacion de csv")
-    csv=process.exportar_csv()
-    print ("Exportacion de excel estadisticas generales")
-    excel2=process.exportar_excel()
-    excel.exportar(df_estadisticas,"estadisticas generales")
+    print("Exportando Excel")
+    excel = ExportarExcel()
+    excel.exportar(
+        df_pivot_table,
+        "estadisticas"
+    )
+    print("Exportando CSV")
+    csv = ExportarCSV()
+    csv.exportar(
+        df_pivot_table,
+        "estadisticas_csv"
+    )
 
-
-    
-    
+    print("Exportando estadísticas generales")
+    excel.exportar(
+        df_estadisticas,
+        "estadisticas_generales"
+    )
