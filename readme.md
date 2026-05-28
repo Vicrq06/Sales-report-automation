@@ -27,7 +27,7 @@ project/
 
 │── requirements.txt
 ## Installation
-git clone https://github.com/yourusername/sales-report-automation.git
+git clone https://github.com/Vicrq06/Sales-report-automation
 
 cd sales-report-automation
 
@@ -36,14 +36,13 @@ pip install -r requirements.txt
 python main.py
 ## Example Output
 
-Generates a pivot table summarizing sales by product and category, exported as an Excel report.
+Generates a pivot table summarizing sales by product and category, exported as an Excel report and graph.
 
 ## Purpose
 
 This project demonstrates data analysis and automation skills using Python, focusing on real-world business applications.
 
 ## Future Improvements
-Graph summarizer
 Automated email reporting
 Dashboard integration
 API for report generation

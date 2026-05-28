@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from abc import (ABC,abstractmethod)
 from dotenv import load_dotenv
 import smtplib 
-from email.message import EmailMessage
+from email.message import EmailMessage      #se usara para implicaciones futuras
 import os
 
 
@@ -36,6 +36,7 @@ def combinar_data(files):
     return df
     
 
+#uso de principio ocp ()
 class exportador (ABC):
     @abstractmethod
     def exportar(self,df,path):
@@ -129,7 +130,7 @@ def enviar_correo (asunto,cuerpo,destinatario,archivos=None):
             except Exception as e:
                 print(f"Error adjuntando {ruta}: {e}")
 
-    # 🚀 Enviar correo
+    # Enviar correo
     try:
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()

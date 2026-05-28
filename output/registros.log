@@ -1,9 +1,18 @@
-11 39 31: AM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
-11 39 31: AM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
-11 39 31: AM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
-11 39 31: AM : DEBUG : Dataframe combinado.
-11 39 31: AM : DEBUG : Se ha hecho pivot del dataframe
-11 39 31: AM : DEBUG : Se ha hecho groupby del dataframe
-11 39 31: AM : DEBUG : Se ha hecho pivot_table del dataframe
-11 39 31: AM : DEBUG : Grafica exportada con éxito
-11 39 42: AM : DEBUG : Excel exportado con exito
+12 55 17: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+12 55 17: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+12 55 17: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+12 55 17: PM : DEBUG : Dataframe combinado.
+12 55 17: PM : DEBUG : Se ha hecho pivot del dataframe
+12 55 17: PM : DEBUG : Se ha hecho groupby del dataframe
+12 55 17: PM : DEBUG : Se ha hecho pivot_table del dataframe
+12 55 18: PM : DEBUG : Grafica exportada con éxito
+12 55 22: PM : DEBUG : Excel exportado con exito
+07 40 17: PM : DEBUG : Se ha limpieado el archivo ventas_enero.xlsx
+07 40 17: PM : DEBUG : Se ha limpieado el archivo ventas_febrero.xlsx
+07 40 17: PM : DEBUG : Se ha limpieado el archivo ventas_marzo.xlsx
+07 40 17: PM : DEBUG : Dataframe combinado.
+07 40 17: PM : DEBUG : Se ha hecho pivot del dataframe
+07 40 17: PM : DEBUG : Se ha hecho groupby del dataframe
+07 40 17: PM : DEBUG : Se ha hecho pivot_table del dataframe
+07 40 18: PM : DEBUG : Grafica exportada con éxito
+07 40 20: PM : DEBUG : Excel exportado con exito
