@@ -32,6 +32,8 @@ if __name__=="__main__":
     
     print ("Exportando gráfica de pivot table")
     process.export_graph(df_pivot_table,tipo="bar",nombre="Grafico")
+    print ("Exportando Gráfica de estadisticas generales")
+    process.export_graph(df_estadisticas,tipo="bar",nombre="Grafico estadisticas")
 
 
 
@@ -40,9 +42,9 @@ if __name__=="__main__":
     excel.exportar(df_pivot_table,"estadisticas")
     print ("Exportacion de csv")
     csv=process.exportar_csv()
-    print 
-
-    print ("Envio de correo")
+    print ("Exportacion de excel estadisticas generales")
+    excel2=process.exportar_excel()
+    excel.exportar(df_estadisticas,"estadisticas generales")
 
 
     
